@@ -3,7 +3,15 @@ from email.message import EmailMessage
 from tkinter import *
 
 
+def save():
+    with open('save.txt', 'w', encoding='utf-8') as file:
+        file.write(f"{sender_email_entry.get()}\n")
+        file.write(f"{recipient_email_entry.get()}\n")
+        file.write(f"{password_entry.get()}\n")
+
+
 def send_email():
+    save()
     sender_email = sender_email_entry.get()
     recipient_mail = recipient_email_entry.get()
     password = password_entry.get()
